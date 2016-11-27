@@ -3,19 +3,19 @@
 ###################
 
 Los modulos...
-- usuarios
-- alumnos
-- mensaje
+* usuarios
+* alumnos
+* mensaje
 
 Cada modulo debe tener los siguientes archivos:
 ( tomando como ejemplo usuarios )
 
-/application/controllers/Usuario_controlller.php
-/applicaion/models/Usuario.php
+* /application/controllers/Usuario_controlller.php
+* /applicaion/models/Usuario.php
 
-/application/views/usuario/listar.php
-/application/views/usuario/nuevo.php
-/application/views/usuario/editar.php
+* /application/views/usuario/listar.php
+* /application/views/usuario/nuevo.php
+* /application/views/usuario/editar.php
 
 ## En el controlador necesitamos los metodos:
 
