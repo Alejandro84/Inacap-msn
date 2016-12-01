@@ -29,7 +29,7 @@ class Verificador_controller extends CI_Controller {
 
  }
 
- function check_database($sPassword)
+ function check_database($password)
  {
    //Field validation succeeded.  Validate against database
    $sNick = $this->input->post('correo');
