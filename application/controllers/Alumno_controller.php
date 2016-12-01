@@ -11,7 +11,8 @@ class Alumno_controller extends CI_Controller{
 
    function index()
    {
-      $this->load->view('template/header');
+      $data['alumnos'] = $this->alumno->getAll(0);
+      $this->load->view('template/header', $data);
       $this->load->view('template/nav');
       $this->load->view('alumno/listar');
       $this->load->view('template/footer');
