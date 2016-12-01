@@ -32,3 +32,7 @@ Cada modulo debe tener los siguientes archivos:
 * getTrash -> devuelve un objeto con todas las filas con la columna estado en 0.
 * insertar -> recibe un array con los datos procesados en el controlador para insertar una nueva fila.
 * guardar -> recibe un array con los datos procesados en el controlador para actualizar una fila existente.
+
+## quitar index.php
+Usar el contenido del archivo htaccess.md y copiarlo dentro de un archivo .htaccess (con el punto incluido)
+y guardarlo en /Inacap-msn/.htaccess
