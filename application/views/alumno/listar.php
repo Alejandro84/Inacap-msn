@@ -2,7 +2,10 @@
 
    <div class="row">
       <div class="col-md-12">
-         <h2>Alumnos en el sistema</h2>
+         <h2>Alumnos en el sistema
+            <a href="<?= site_url('admin/alumno/nuevo');?>" class="btn btn-primary pull-right">Agregar alumno</a>
+         </h2>
+         <hr>
       </div>
    </div>
 
@@ -28,11 +31,14 @@
                </thead>
 
                <tbody>
-                  <? foreach ( $alumnos as $alumno ): ?>
+                  <? foreach ( $alumnos as $a ): ?>
                   <tr>
-                     <td><?= $alumno->primer_apellido.' '.(isset($alumno->segundo_apellido )) ? $alumno->segundo_apellido:'';?></td>
-                     <td><?= $alumno->primer_nombre.' '.(isset($alumno->segundo_nombre )) ? $alumno->segundo_apellido:'';?></td>
-
+                     <td><?=$a->primer_apellido;?></td>
+                     <td><?=$a->primer_nombre;?></td>
+                     <td><?=$a->rut;?></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
                   </tr>
                   <? endforeach; ?>
                </tbody>
@@ -40,7 +46,7 @@
             </table>
 
          <? endif; ?>
-         
+
       </div>
    </div>
 

@@ -7,7 +7,7 @@
       </div>
    </div>
 
-   <form method="post" action="<?= site_url('admin/alumno/nuevo');?>">
+   <form method="post" action="<?= site_url('admin/alumno/crear');?>">
    <div class="col-md-6">
 
       <h4>Datos personales</h4>
@@ -54,6 +54,10 @@
       <div class="form-group">
          <caption>Semestre</caption>
          <input type="number" name="semestre" class="form-control">
+      </div>
+
+      <div class="form-group">
+         <button class="btn btn-block btn-success" type="submit">Guardar</button>
       </div>
 
    </div>

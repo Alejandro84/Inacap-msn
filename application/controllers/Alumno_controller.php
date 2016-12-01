@@ -28,7 +28,7 @@ class Alumno_controller extends CI_Controller{
 
    }
 
-   function guardar()
+   function crear()
    {
       $primer_nombre = $this->input->post('primer_nombre');
       $segundo_nombre = $this->input->post('segundo_nombre');
@@ -47,14 +47,16 @@ class Alumno_controller extends CI_Controller{
 
       if ( ! $this->alumno->insertar( $insert ) )
       {
-         $mensaje = 'No se pudieron guardar los datos:<br>'.$this->db->_error_message();
+         $mensaje = 'No se pudieron guardar los datos';
          $this->session->set_flashdata('error', $mensaje);
          redirect('admin/alumno');
       } else {
-         $mensaje = 'No se pudieron guardar los datos:<br>'.$this->db->_error_message();
+         $mensaje = 'Los datos se guardaon de forma correcta';
          $this->session->set_flashdata('success', $mensaje);
          redirect('admin/alumno');
       }
    }
+
+
 
 }
