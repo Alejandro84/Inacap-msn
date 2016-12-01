@@ -27,4 +27,14 @@ class Alumno extends CI_Model{
 
    }
 
+   public function insertar( $datos )
+   {
+      if ( ! $this->db->insert('alumnos', $datos ) )
+      {
+         return false;
+      } else {
+         return true;
+      }
+   }
+
 }
