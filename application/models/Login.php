@@ -1,12 +1,12 @@
 <?php
 Class Login extends CI_Model
 {
- function getUser($sNick, $sPassword)
+ function getUser($correo, $password)
  {
-   $this -> db -> select('nId, sNick, sPassword');
+   $this -> db -> select('id_usuario, correo, password');
    $this -> db -> from('usuarios');
-   $this -> db -> where('sNick', $sNick);
-   $this -> db -> where('sPassword', MD5($sPassword));
+   $this -> db -> where('correo', $correo);
+   $this -> db -> where('password', MD5($password));
    $this -> db -> limit(1);
 
    $query = $this -> db -> get();
