@@ -2,21 +2,23 @@
 
 class Login_controller extends CI_Controller {
 
-    function __construct()
-    {
+   function __construct()
+   {
       parent::__construct();
-    }
+   }
 
-    function index()
-    {
-      $this->load->helper(array('form'));
-      $this->load->view('login');
-    }
+   function index()
+   {
+      $this->load->view('template/header');
+      $this->load->view('login/login');
+      $this->load->view('template/footer');
+   }
 
-    public function inicio()
-    {
-      redirect('admin/login');
-    }
+   function validar()
+   {
+      $usuario = $this->input->post('usuario');
+      $password = $this->input->post('password');
+   }
 }
 
 ?>
