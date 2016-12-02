@@ -27,6 +27,26 @@ class Mensaje extends CI_Model{
 
    }
 
+   public function getTrash( $offset )
+   {
+      $this->db->select('*');
+      $this->db->from('mensajes');
+      $this->db->where('estado =', '0');
+      $this->db->limit(40, $offset);
+      $query = $this->db->get();
+
+      if ( $query->num_rows() > 0 )
+      {
+         return $query->result();
+
+      } else {
+
+         return false;
+
+      }
+
+   }
+
    public function insertar( $datos )
    {
       if ( ! $this->db->insert('mensajes', $datos ) )

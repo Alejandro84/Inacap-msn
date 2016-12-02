@@ -27,7 +27,7 @@ class Mensaje_controller extends CI_Controller {
       $this->load->view('template/footer');
    }
 
-   public function  guardar()
+   public function  crear()
    {
       $id_alumno = $this->input->post('id_alumno');
       $id_remitente = $this->input->post('id_remitente');
@@ -39,7 +39,16 @@ class Mensaje_controller extends CI_Controller {
          'mensaje' => $mensaje
        );
 
-       $this->mensaje->guardar( $insert )
+       if ( ! $this->mensaje->insertar( $insert ) )
+       {
+          $mensaje = 'No se pudieron guardar los datos';
+          $this->session->set_flashdata('error', $mensaje);
+          redirect('admin/mensaje');
+       } else {
+          $mensaje = 'Los datos se guardaon de forma correcta';
+          $this->session->set_flashdata('success', $mensaje);
+          redirect('admin/mensaje');
+       }
    }
    public function editar()
    {

@@ -56,6 +56,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['admin/alumno'] = 'alumno_controller';
 $route['admin/alumno/nuevo'] = 'alumno_controller/nuevo';
+<<<<<<< HEAD
 
 $route['admin/mensaje'] = 'mensaje_controller';
 $route['admin/mensaje/nuevo'] = 'mensaje_controller/nuevo';
+=======
+$route['admin/alumno/crear'] = 'alumno_controller/crear';
+>>>>>>> ebf0bdcf3f2f87d2b995022c803c9345f06939c3
