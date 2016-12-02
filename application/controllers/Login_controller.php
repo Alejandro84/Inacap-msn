@@ -2,16 +2,16 @@
 
 class Login_controller extends CI_Controller {
 
- function __construct()
- {
-   parent::__construct();
- }
+   function __construct()
+   {
+      parent::__construct();
+   }
 
- function index()
- {
-   $this->load->helper(array('form'));
-   $this->load->view('login');
- }
+   function index()
+   {
+      $this->load->helper('form');
+      $this->load->view('login');
+   }
 
 }
 
