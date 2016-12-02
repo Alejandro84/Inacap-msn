@@ -5,28 +5,34 @@ class Login_controller extends CI_Controller {
    function __construct()
    {
       parent::__construct();
+      $this->load->model('login');
    }
 
-<<<<<<< HEAD
    function index()
    {
-      $this->load->helper('form');
-      $this->load->view('login');
-   }
-=======
-    function index()
-    {
       //$this->load->helper(array('form'));
       $this->load->view('template/header');
       $this->load->view('login/login');
       $this->load->view('template/footer');
-    }
->>>>>>> 0a9564cb6719dc5639eaa262c03caae5cc0566ba
-
-   function validar()
+   }
+   function verificar()
    {
       $usuario = $this->input->post('usuario');
       $password = $this->input->post('password');
+
+      $usuario = $this->login->getUser($usuario, $password);
+
+      if ( ! $usuario )
+      {
+         $mensaje = 'Usuario o contraseña incorrectos';
+         $this->session->set_flashdata('error', $mensaje);
+         redirect('login');
+      } else {
+         $mensaje = 'Sesión iniciada con exito';
+         $this->session->set_flashdata('success', $mensaje);
+         redirect('admin/alumno');
+      }
+
    }
 }
 
