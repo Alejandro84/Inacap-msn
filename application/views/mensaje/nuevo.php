@@ -9,7 +9,7 @@
    </div>
 
    <form method="post" action="<?= site_url('admin/mensaje/nuevo');?>">
-   <div class="col-md-6">
+   <div class="col-md-8">
 
          <div class="form-group">
             <caption>de:</caption>
