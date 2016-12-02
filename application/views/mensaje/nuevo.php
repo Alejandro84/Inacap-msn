@@ -30,9 +30,15 @@
             <div class="form-group">
                <caption>Destinatarios</caption>
                <ul>
-                  <li><input type="checkbox" name="ing_informatica" value="">Ingenieria en informatica
+                  <li class="checkbox"><input type="checkbox" name="ing_informatica" value="">Ingenieria en informatica
                      <ul>
-                        <li><input type="checkbox" name="id_alumno" value="">Fabian Vasquez</li>
+                        <li class="checkbox"><input type="checkbox" name="semestre" value="">Semestre
+                           <ul>
+                              <li class="checkbox"><input type="checkbox" name="semestre" value="">Alejandro Vargas</li>
+                              <li class="checkbox"><input type="checkbox" name="semestre" value="">Fabian Vasquez</li>
+                              <li class="checkbox"><input type="checkbox" name="semestre" value="">Andres Otero</li>
+                           </ul>
+                        </li>
                      </ul>
                   </li>
                </ul>
