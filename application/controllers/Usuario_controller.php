@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Alumno_controller extends CI_Controller{
+class Usuario_controller extends CI_Controller{
 
    public function __construct()
    {
       parent::__construct();
-      $this->load->model('alumno');
+      $this->load->model('usuario');
    }
 
    function index()
    {
-      $data['alumnos'] = $this->alumno->getAll(0);
+      $data['usuarios'] = $this->usuario->getAll(0);
       $this->load->view('template/header', $data);
       $this->load->view('template/nav');
-      $this->load->view('alumno/listar');
+      $this->load->view('usuario/listar');
       $this->load->view('template/footer');
    }
 
@@ -23,91 +23,80 @@ class Alumno_controller extends CI_Controller{
 
       $this->load->view('template/header');
       $this->load->view('template/nav');
-      $this->load->view('alumno/nuevo');
+      $this->load->view('usuario/nuevo');
       $this->load->view('template/footer');
 
    }
 
    function crear()
    {
-      $primer_nombre = $this->input->post('primer_nombre');
-      $segundo_nombre = $this->input->post('segundo_nombre');
-      $primer_apellido = $this->input->post('primer_apellido');
-      $segundo_apellido = $this->input->post('segundo_apellido');
-      $rut = $this->input->post('rut');
+      $correo = $this->input->post('correo');
+      $password = $this->input->post('password');
 
       $insert = array(
-         'primer_nombre' => $primer_nombre,
-         'segundo_nombre' => $segundo_nombre,
-         'primer_apellido' => $primer_apellido,
-         'segundo_apellido' => $segundo_apellido,
-         'rut' => $rut,
+         'correo' => $correo,
+         'password' => $paswoord,
          'estado' => 1
       );
 
-      if ( ! $this->alumno->insertar( $insert ) )
+      if ( ! $this->usuario->insertar( $insert ) )
       {
          $mensaje = 'No se pudieron guardar los datos';
          $this->session->set_flashdata('error', $mensaje);
-         redirect('admin/alumno');
+         redirect('admin/usuario');
       } else {
          $mensaje = 'Los datos se guardaon de forma correcta';
          $this->session->set_flashdata('success', $mensaje);
-         redirect('admin/alumno');
+         redirect('admin/usuario');
       }
    }
    public function editar()
    {
-      $id_alumno = $this->input->post('id_alumno');
+      $id_usuario = $this->input->post('id_usuario');
 
-      $primer_nombre = $this->input->post('primer_nombre');
-      $segundo_nombre = $this->input->post('segundo_nombre');
-      $primer_apellido = $this->input->post('primer_apellido');
-      $segundo_apellido = $this->input->post('segundo_apellido');
-      $rut = $this->input->post('rut');
+      $correo = $this->input->post('correo');
+      $password = $this->input->post('password');
 
       $insert = array(
-         'primer_nombre' => $primer_nombre,
-         'segundo_nombre' => $segundo_nombre,
-         'primer_apellido' => $primer_apellido,
-         'segundo_apellido' => $segundo_apellido,
-         'rut' => $rut,
+         'correo' => $correo,
+         'password' => $paswoord,
+         'ultima_modificacion' => date(Y-m-d)
          'estado' => 1
       );
 
 
-       if ( !  $this->alumno->actualizar( $insert, $id_mensaje ))
+       if ( !  $this->usuario->actualizar( $insert, $id_usuario ))
        {
           $mensaje = 'No se pudieron guardar los datos';
           $this->session->set_flashdata('error', $mensaje);
-          redirect('admin/alumno');
+          redirect('admin/usuario');
        } else {
           $mensaje = 'Los datos se guardaon de forma correcta';
           $this->session->set_flashdata('success', $mensaje);
-          redirect('admin/alumno');
+          redirect('admin/usuario');
        }
    }
    public function actualizar()
    {
       $this->load->view('template/header');
       $this->load->view('mensaje/nuevo');
-      $this->load->view('alumno/editar');
+      $this->load->view('usuario/editar');
       $this->load->view('template/footer');
    }
    public function eliminar()
    {
-      if ( ! $this->alumno->borrar( $id ) )
+      if ( ! $this->usuario->borrar( $id ) )
       {
          $error = $this->db->_error_message();
          $mensaje = 'No se pudo borrar el elemento: '.$error;
          $this->session->set_flashdata('error', $mensaje );
-         redirect('admin/alumno');
+         redirect('admin/usuario');
 
       } else {
 
          $mensaje = 'Elemento borrado de manera correcta. <a href="'.site_url('admin/alumno/papelera').'">¿Desea recuperarlo?</a>';
          $this->session->set_flashdata('success', $mensaje );
-         redirect('admin/alumno');
+         redirect('admin/usuario');
       }
    }
 
