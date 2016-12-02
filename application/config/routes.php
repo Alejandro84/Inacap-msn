@@ -49,16 +49,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'login_controller/inicio';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['admin/alumno'] = 'alumno_controller';
-$route['admin/alumno/nuevo'] = 'alumno_controller/nuevo';
+$route['admin/alumno']                                       =     'alumno_controller';
+$route['admin/alumno/nuevo']                                 =     'alumno_controller/nuevo';
+$route['admin/alumno/crear']                                 =     'alumno_controller/crear';
+$route['admin/alumno/editar/(:num)']                         =     'alumno_controller/editar/$1';
+$route['admin/alumno/actualizar']                            =     'alumno_controller/actualizar';
+$route['admin/alumno/borrar/(:num)']                         =     'alumno_controller/borrar/$1';
 
+$route['admin/mensaje']                                       =     'mensaje_controller';
+$route['admin/mensaje/nuevo']                                 =     'mensaje_controller/nuevo';
+$route['admin/mensaje/crear']                                 =     'mensaje_controller/crear';
+$route['admin/mensaje/editar/(:num)']                         =     'mensaje_controller/editar/$1';
+$route['admin/mensaje/actualizar']                            =     'mensaje_controller/actualizar';
+$route['admin/mensaje/borrar/(:num)']                         =     'mensaje_controller/borrar/$1';
 
-$route['admin/mensaje'] = 'mensaje_controller';
-$route['admin/mensaje/nuevo'] = 'mensaje_controller/nuevo';
-
-$route['admin/alumno/crear'] = 'alumno_controller/crear';
+$route['admin/login']                                       =     'login_controller';
+$route['admin/login/verificar']                             =     'login_controller/verificar';
+$route['admin/login/salir']                                 =     'login_controller/salir';
