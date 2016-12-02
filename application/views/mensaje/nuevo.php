@@ -9,28 +9,35 @@
    </div>
 
    <form method="post" action="<?= site_url('admin/mensaje/nuevo');?>">
-   <div class="col-md-8">
+      <div class="col-md-6">
 
-         <div class="form-group">
-            <caption>de:</caption>
-            <input type="text" class="form-control" name="id_remitente">
-         </div>
+            <div class="form-group">
+               <caption>Titulo</caption>
+               <input type="text" class="form-control" name="id_remitente">
+            </div>
 
-         <div class="form-group">
-            <caption>Para:</caption>
-            <input type="text" class="form-control" name="id_alumno">
-         </div>
+            <div class="form-group">
+               <caption>Mensaje</caption>
+               <textarea rows="4" class="form-control" name="mensaje">
+               </textarea>
+            </div>
 
-         <div class="form-group">
-            <caption>Mensaje</caption>
-            <textarea rows="4" class="form-control" name="mensaje">
-            </textarea>
-         </div>
+            <button type="submit" name="guardar" class="btn btn-success">Enviar</button>          
+
+      </div>
+      <div class="col-md-6">
+
+            <div class="form-group">
+               <caption>Destinatarios</caption>
+               <textarea rows="7" class="form-control" name="id_alumno">
+                  <!-- colocar los alumno -->
+               </textarea>
+            </div>
+
+      </div>
 
 
 
-   </div>
    </form>
-
 
 </div>
