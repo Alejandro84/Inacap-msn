@@ -22,16 +22,20 @@
                </textarea>
             </div>
 
-            <button type="submit" name="guardar" class="btn btn-success">Enviar</button>          
+            <button type="submit" name="guardar" class="btn btn-success">Enviar</button>
 
       </div>
       <div class="col-md-6">
 
             <div class="form-group">
                <caption>Destinatarios</caption>
-               <textarea rows="7" class="form-control" name="id_alumno">
-                  <!-- colocar los alumno -->
-               </textarea>
+               <ul>
+                  <li><input type="checkbox" name="ing_informatica" value="">Ingenieria en informatica
+                     <ul>
+                        <li><input type="checkbox" name="id_alumno" value="">Fabian Vasquez</li>
+                     </ul>
+                  </li>
+               </ul>
             </div>
 
       </div>

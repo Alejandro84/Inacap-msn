@@ -4,6 +4,8 @@
       <div class="col-md-12">
          <h2>Carreras en la base de datos</h2>
          <hr>
+         <a href="<?= site_url('admin/carreras/nuevas');?>" class="btn btn-primary">Agregar</a>
+         
          <? $this->load->view('template/alert'); ?>
       </div>
 
