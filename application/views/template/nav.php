@@ -30,6 +30,27 @@
 
             </li>
 
+            <li class="dropdown">
+
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carreras <span class="caret"></span></a>
+
+               <ul class="dropdown-menu">
+                  <li><a href="<?= site_url('admin/carreras')?>">Ver carreras en el sistema</a></li>
+                  <li><a href="<?= site_url('admin/carreras/nueva')?>">Añadir carrera</a></li>
+               </ul>
+
+            </li>
+
+            <li class="dropdown">
+
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mensajes <span class="caret"></span></a>
+
+               <ul class="dropdown-menu">
+                  <li><a href="<?= site_url('admin/mensaje')?>">Ver mensajes enviados</a></li>
+                  <li><a href="<?= site_url('admin/mensaje/nuevo')?>">Enviar mensaje</a></li>
+               </ul>
+
+            </li>
 
 
          </ul>

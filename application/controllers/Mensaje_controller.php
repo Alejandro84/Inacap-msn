@@ -4,16 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mensaje_controller extends CI_Controller {
 
    public function __construct()
-      {
-         parent::__construct();
-         $this->load->model('mensaje');
-      }
+   {
+      parent::__construct();
+      $this->load->model('mensaje');
+   }
 
 	public function index()
 	{
-      $data['mensajes'] = $this->mensaje->getAll();
+      $data['mensajes'] = $this->mensaje->getAll(0,0);
 
-      $this->load->view('template/header');
+      $this->load->view('template/header', $data);
       $this->load->view('template/nav');
       $this->load->view('mensaje/listar');
       $this->load->view('template/footer');
@@ -22,12 +22,12 @@ class Mensaje_controller extends CI_Controller {
    public function nuevo()
    {
       $this->load->view('template/header');
+      $this->load->view('template/nav');
       $this->load->view('mensaje/nuevo');
-      $this->load->view('mensaje/listar');
       $this->load->view('template/footer');
    }
 
-   public function  guardar()
+   public function  crear()
    {
       $id_alumno = $this->input->post('id_alumno');
       $id_remitente = $this->input->post('id_remitente');
@@ -36,11 +36,23 @@ class Mensaje_controller extends CI_Controller {
       $insert = array(
          'id_alumno' => $id_alumno,
          'id_remitente' => $id_remitente,
-         'mensaje' => $mensaje
+         'mensaje' => $mensaje,
+         'estado' => 1
        );
 
-       $this->mensaje->guardar( $insert )
+       if ( ! $this->mensaje->insertar( $insert ) )
+       {
+          $mensaje = 'No se pudieron guardar los datos';
+          $this->session->set_flashdata('error', $mensaje);
+          redirect('admin/mensaje');
+       } else {
+          $mensaje = 'Los datos se guardaon de forma correcta';
+          $this->session->set_flashdata('success', $mensaje);
+          redirect('admin/mensaje');
+       }
    }
+
+
    public function editar()
    {
       $id_mensaje = $this->input->post('id_mensaje');
@@ -52,11 +64,24 @@ class Mensaje_controller extends CI_Controller {
       $insert = array(
          'id_alumno' => $id_alumno,
          'id_remitente' => $id_remitente,
-         'mensaje' => $mensaje
+         'mensaje' => $mensaje,
+         'estado' => 1
        );
 
-       $this->mensaje->actualizar( $insert, $id_mensaje )
+
+       if ( !  $this->mensaje->actualizar( $insert, $id_mensaje ))
+       {
+          $mensaje = 'No se pudieron guardar los datos';
+          $this->session->set_flashdata('error', $mensaje);
+          redirect('admin/mensaje');
+       } else {
+          $mensaje = 'Los datos se guardaon de forma correcta';
+          $this->session->set_flashdata('success', $mensaje);
+          redirect('admin/mensaje');
+       }
    }
+
+
    public function actualizar()
    {
       $this->load->view('template/header');
@@ -64,6 +89,8 @@ class Mensaje_controller extends CI_Controller {
       $this->load->view('mensaje/editar');
       $this->load->view('template/footer');
    }
+
+
    public function eliminar()
    {
       if ( ! $this->mensaje->borrar( $id ) )
@@ -71,13 +98,13 @@ class Mensaje_controller extends CI_Controller {
          $error = $this->db->_error_message();
          $mensaje = 'No se pudo borrar el elemento: '.$error;
          $this->session->set_flashdata('error', $mensaje );
-         redirect('admin/taxis');
+         redirect('admin/mensaje');
 
       } else {
 
-         $mensaje = 'Elemento borrado de manera correcta. <a href="'.site_url('admin/taxis/papelera').'">¿Desea recuperarlo?</a>';
+         $mensaje = 'Elemento borrado de manera correcta. <a href="'.site_url('admin/mensaje/papelera').'">¿Desea recuperarlo?</a>';
          $this->session->set_flashdata('success', $mensaje );
-         redirect('admin/taxis');
+         redirect('admin/mensaje');
       }
    }
 }
