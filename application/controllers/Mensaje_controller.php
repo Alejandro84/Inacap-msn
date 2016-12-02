@@ -4,16 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mensaje_controller extends CI_Controller {
 
    public function __construct()
-      {
-         parent::__construct();
-         $this->load->model('mensaje');
-      }
+   {
+      parent::__construct();
+      $this->load->model('mensaje');
+   }
 
 	public function index()
 	{
-      $data['mensajes'] = $this->mensaje->getAll();
+      $data['mensajes'] = $this->mensaje->getAll(0,0);
 
-      $this->load->view('template/header');
+      $this->load->view('template/header', $data);
       $this->load->view('template/nav');
       $this->load->view('mensaje/listar');
       $this->load->view('template/footer');
