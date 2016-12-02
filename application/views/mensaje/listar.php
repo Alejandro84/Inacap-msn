@@ -3,7 +3,7 @@
    <div class="row">
       <div class="col-md-12">
          <h2>Mensajes
-            <a href="<?= site_url('admin/mensaje/nuevo');?>" class="btn btn-primary pull-right">Agregar alumno</a>
+            <a href="<?= site_url('admin/mensaje/nuevo');?>" class="btn btn-primary pull-right">Nuevo Mensaje</a>
          </h2>
          <hr>
       </div>
@@ -14,7 +14,7 @@
 
          <? if ( ! $mensajes ): ?>
          <div class="alert alert-info">
-            <p>No hay alumnos en el sistema, <a href="<?= site_url('admin/mensaje/nuevo');?>">¿Desea ingresar uno?</a></p>
+            <p>No hay mensajes enviados, <a href="<?= site_url('admin/mensaje/nuevo');?>">¿Desea enviar uno?</a></p>
          </div>
 
          <? else: ?>

@@ -2,10 +2,10 @@
 
 class Login_controller extends CI_Controller {
 
-    function __construct()
-    {
+   function __construct()
+   {
       parent::__construct();
-    }
+   }
 
     function index()
     {
@@ -15,6 +15,11 @@ class Login_controller extends CI_Controller {
       $this->load->view('template/footer');
     }
 
+   function validar()
+   {
+      $usuario = $this->input->post('usuario');
+      $password = $this->input->post('password');
+   }
 }
 
 ?>
