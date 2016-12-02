@@ -9,14 +9,12 @@ class Login_controller extends CI_Controller {
 
     function index()
     {
-      $this->load->helper(array('form'));
-      $this->load->view('login');
+      //$this->load->helper(array('form'));
+      $this->load->view('template/header');
+      $this->load->view('login/login');
+      $this->load->view('template/footer');
     }
 
-    public function inicio()
-    {
-      redirect('admin/login');
-    }
 }
 
 ?>
